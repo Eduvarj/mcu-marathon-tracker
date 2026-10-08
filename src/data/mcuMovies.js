@@ -1,0 +1,47 @@
+export const MCU_MOVIES = [
+  { id: 'mcu-01', numero: 1, titulo: 'Capitán América: El primer vengador', año: '1942', plataforma: 'Disney+', duracionMinutos: 124, calidad: '4K UHD' },
+  { id: 'mcu-02', numero: 2, titulo: 'Los 4 Fantásticos: Primeros pasos', año: '1960s*', plataforma: 'Disney+', duracionMinutos: 115, calidad: '4K UHD / IMAX Enhanced', fueraDeLineaPrincipal: true },
+  { id: 'mcu-03', numero: 3, titulo: 'Capitana Marvel', año: '1995', plataforma: 'Disney+', duracionMinutos: 123, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-04', numero: 4, titulo: 'Iron Man', año: '2008', plataforma: 'Disney+', duracionMinutos: 126, calidad: '4K UHD' },
+  { id: 'mcu-05', numero: 5, titulo: 'Iron Man 2', año: '2010', plataforma: 'Disney+', duracionMinutos: 124, calidad: '4K UHD' },
+  { id: 'mcu-06', numero: 6, titulo: 'El increíble Hulk', año: '2010', plataforma: 'Disney+', duracionMinutos: 112, calidad: '4K UHD' },
+  { id: 'mcu-07', numero: 7, titulo: 'Thor', año: '2010', plataforma: 'Disney+', duracionMinutos: 114, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-08', numero: 8, titulo: 'Los Vengadores', año: '2012', plataforma: 'Disney+', duracionMinutos: 143, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-09', numero: 9, titulo: 'Iron Man 3', año: '2013', plataforma: 'Disney+', duracionMinutos: 130, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-10', numero: 10, titulo: 'Thor: El mundo oscuro', año: '2013', plataforma: 'Disney+', duracionMinutos: 112, calidad: '4K UHD' },
+  { id: 'mcu-11', numero: 11, titulo: 'Capitán América: El Soldado de Invierno', año: '2014', plataforma: 'Disney+', duracionMinutos: 136, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-12', numero: 12, titulo: 'Guardianes de la Galaxia', año: '2014', plataforma: 'Disney+', duracionMinutos: 121, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-13', numero: 13, titulo: 'Guardianes de la Galaxia Vol. 2', año: '2014', plataforma: 'Disney+', duracionMinutos: 137, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-14', numero: 14, titulo: 'Avengers: La era de Ultrón', año: '2015', plataforma: 'Disney+', duracionMinutos: 141, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-15', numero: 15, titulo: 'Ant-Man', año: '2015', plataforma: 'Disney+', duracionMinutos: 117, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-16', numero: 16, titulo: 'Capitán América: Civil War', año: '2016', plataforma: 'Disney+', duracionMinutos: 147, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-17', numero: 17, titulo: 'Black Widow', año: '2016', plataforma: 'Disney+', duracionMinutos: 134, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-18', numero: 18, titulo: 'Black Panther', año: '2016', plataforma: 'Disney+', duracionMinutos: 134, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-19', numero: 19, titulo: 'Spider-Man: Homecoming', año: '2016', plataforma: 'Disney+', duracionMinutos: 133, calidad: '4K UHD' },
+  { id: 'mcu-20', numero: 20, titulo: 'Doctor Strange: Hechicero Supremo', año: '2016–2017', plataforma: 'Disney+', duracionMinutos: 115, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-21', numero: 21, titulo: 'Thor: Ragnarok', año: '2017', plataforma: 'Disney+', duracionMinutos: 130, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-22', numero: 22, titulo: 'Ant-Man y la Avispa', año: '2018', plataforma: 'Disney+', duracionMinutos: 118, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-23', numero: 23, titulo: 'Avengers: Infinity War', año: '2018', plataforma: 'Disney+', duracionMinutos: 149, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-24', numero: 24, titulo: 'Avengers: Endgame', año: '2018–2023', plataforma: 'Disney+', duracionMinutos: 181, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-25', numero: 25, titulo: 'Shang-Chi y la leyenda de los Diez Anillos', año: '2024', plataforma: 'Disney+', duracionMinutos: 132, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-26', numero: 26, titulo: 'Spider-Man: Lejos de casa', año: '2024', plataforma: 'Disney+', duracionMinutos: 129, calidad: '4K UHD' },
+  { id: 'mcu-27', numero: 27, titulo: 'Eternals', año: '2024', plataforma: 'Disney+', duracionMinutos: 156, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-28', numero: 28, titulo: 'Spider-Man: Sin camino a casa', año: '2024', plataforma: 'Disney+', duracionMinutos: 148, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-29', numero: 29, titulo: 'Doctor Strange en el multiverso de la locura', año: '2024', plataforma: 'Disney+', duracionMinutos: 126, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-30', numero: 30, titulo: 'Black Panther: Wakanda Forever', año: '2025', plataforma: 'Disney+', duracionMinutos: 161, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-31', numero: 31, titulo: 'Thor: Amor y trueno', año: '2025', plataforma: 'Disney+', duracionMinutos: 119, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-32', numero: 32, titulo: 'Ant-Man y la Avispa: Quantumanía', año: '2025', plataforma: 'Disney+', duracionMinutos: 125, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-33', numero: 33, titulo: 'Guardianes de la Galaxia Vol. 3', año: '2026', plataforma: 'Disney+', duracionMinutos: 150, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-34', numero: 34, titulo: 'The Marvels', año: '2026', plataforma: 'Disney+', duracionMinutos: 105, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-35', numero: 35, titulo: 'Deadpool y Wolverine', año: '2026', plataforma: 'Disney+', duracionMinutos: 128, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-36', numero: 36, titulo: 'Capitán América: Un nuevo mundo', año: '2026–2027', plataforma: 'Disney+', duracionMinutos: 118, calidad: '4K UHD / IMAX Enhanced' },
+  { id: 'mcu-37', numero: 37, titulo: 'Thunderbolts*', año: '2027', plataforma: 'Disney+', duracionMinutos: 126, calidad: '4K UHD / IMAX Enhanced' },
+];
+
+export const MOVIE_COUNT = MCU_MOVIES.length;
+export const TOTAL_DURATION_MINUTES = MCU_MOVIES.reduce(
+  (total, movie) => total + movie.duracionMinutos,
+  0,
+);
+
+export const STORAGE_KEY = 'mcu-marathon-progress-v2';
