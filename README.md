@@ -176,7 +176,7 @@ El script comprueba que existan exactamente 37 películas, que los números sean
 
 ## Modelo del catálogo
 
-Cada película mantiene los campos usados por la UI (`id`, `numero`, `titulo`, `año`, `plataforma`, `duracionMinutos`, `calidad`) y añade contexto para evolucionar filtros y vistas:
+Cada película mantiene los campos usados por la UI (`id`, `numero`, `titulo`, `año`, `plataforma`, `duracionMinutos`, `calidad`) y añade contexto para evolucionar filtros, fichas y assets visuales:
 
 - `fase`: fase oficial del UCM.
 - `saga`: Saga del Infinito o Saga del Multiverso.
@@ -184,6 +184,10 @@ Cada película mantiene los campos usados por la UI (`id`, `numero`, `titulo`, `
 - `añoEstreno`: año de lanzamiento.
 - `tipoContinuidad`: línea principal, multiversal o realidad alterna.
 - `notas`: contexto corto para decidir por qué aparece en esa posición.
+- `director`, `castPrincipal`, `compositor`, `soundtrackDestacado`: metadata editorial para completar después.
+- `trailerUrl`: enlace externo para la ficha de película.
+- `posterUrl`/`posterKey` y `backdropUrl`/`backdropKey`: soporte para assets propios sin depender de imágenes oficiales.
+- `sinopsisCorta`, `escenasPostCreditos`, `notasContinuidad` y `disponibilidad`: contenido para la ficha expandida.
 
 No se agregaron series todavía. Una evolución futura razonable sería soportar tipos de entrada (`película`, `serie`, `especial`) y separar el catálogo en presets: solo películas, películas + especiales y cronología completa.
 

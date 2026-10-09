@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard';
 
-export default function MovieGrid({ movies, progress, onToggle, onMinuteChange }) {
+export default function MovieGrid({ movies, progress, onToggle, onMinuteChange, onOpenMovie }) {
   if (movies.length === 0) {
     return (
       <section className="rounded-3xl border border-dashed border-white/10 bg-zinc-950/40 px-6 py-16 text-center">
@@ -22,6 +22,7 @@ export default function MovieGrid({ movies, progress, onToggle, onMinuteChange }
           movieProgress={progress[movie.id]}
           onToggle={onToggle}
           onMinuteChange={onMinuteChange}
+          onOpenMovie={onOpenMovie}
         />
       ))}
     </section>

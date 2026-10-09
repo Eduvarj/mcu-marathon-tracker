@@ -12,6 +12,19 @@ const requiredTextFields = [
   'calidad',
   'tipoContinuidad',
   'notas',
+  'sinopsisCorta',
+  'notasContinuidad',
+  'posterKey',
+  'backdropKey',
+];
+const optionalStringFields = [
+  'director',
+  'compositor',
+  'soundtrackDestacado',
+  'trailerUrl',
+  'posterUrl',
+  'backdropUrl',
+  'escenasPostCreditos',
 ];
 
 if (MCU_MOVIES.length !== 37) {
@@ -38,6 +51,25 @@ MCU_MOVIES.forEach((movie, index) => {
 
   if (!Number.isInteger(movie.añoEstreno) || movie.añoEstreno < 2008) {
     errors.push(`Película ${movie.numero}: añoEstreno inválido.`);
+  }
+
+  for (const field of optionalStringFields) {
+    if (typeof movie[field] !== 'string') {
+      errors.push(`Película ${movie.numero}: ${field} debe existir como texto.`);
+    }
+  }
+
+  if (!Array.isArray(movie.castPrincipal)) {
+    errors.push(`Película ${movie.numero}: castPrincipal debe ser un arreglo.`);
+  }
+
+  if (
+    !movie.disponibilidad
+    || typeof movie.disponibilidad.plataforma !== 'string'
+    || typeof movie.disponibilidad.calidad !== 'string'
+    || typeof movie.disponibilidad.notas !== 'string'
+  ) {
+    errors.push(`Película ${movie.numero}: disponibilidad inválida.`);
   }
 
   if (!Number.isInteger(movie.duracionMinutos) || movie.duracionMinutos <= 0) {

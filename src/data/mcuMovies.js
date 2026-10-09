@@ -1,7 +1,7 @@
 const DISNEY_PLUS = 'Disney+';
 const IMAX = '4K UHD / IMAX Enhanced';
 
-export const MCU_MOVIES = [
+const RAW_MCU_MOVIES = [
   {
     id: 'mcu-01',
     numero: 1,
@@ -559,6 +559,31 @@ export const MCU_MOVIES = [
     notas: 'Equipo de antihéroes y agentes con consecuencias para la etapa posterior a Endgame.',
   },
 ];
+
+function createMovieMetadata(movie) {
+  return {
+    ...movie,
+    director: movie.director ?? '',
+    castPrincipal: movie.castPrincipal ?? [],
+    compositor: movie.compositor ?? '',
+    soundtrackDestacado: movie.soundtrackDestacado ?? '',
+    trailerUrl: movie.trailerUrl ?? '',
+    posterUrl: movie.posterUrl ?? '',
+    posterKey: movie.posterKey ?? `${movie.id}-poster`,
+    backdropUrl: movie.backdropUrl ?? '',
+    backdropKey: movie.backdropKey ?? `${movie.id}-backdrop`,
+    sinopsisCorta: movie.sinopsisCorta ?? movie.notas,
+    escenasPostCreditos: movie.escenasPostCreditos ?? '',
+    notasContinuidad: movie.notasContinuidad ?? movie.notas,
+    disponibilidad: movie.disponibilidad ?? {
+      plataforma: movie.plataforma,
+      calidad: movie.calidad,
+      notas: '',
+    },
+  };
+}
+
+export const MCU_MOVIES = RAW_MCU_MOVIES.map(createMovieMetadata);
 
 export const MOVIE_COUNT = MCU_MOVIES.length;
 export const TOTAL_DURATION_MINUTES = MCU_MOVIES.reduce(
