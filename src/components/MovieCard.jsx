@@ -18,13 +18,24 @@ export default function MovieCard({ movie, movieProgress, onToggle, onMinuteChan
             {String(movie.numero).padStart(2, '0')}
           </div>
           <div className="min-w-0">
-            <p className="truncate text-xs font-bold uppercase tracking-[0.18em] text-zinc-600">{movie.año}</p>
+            <p className="truncate text-xs font-bold uppercase tracking-[0.18em] text-zinc-600">
+              {movie.añoCronologico} · estreno {movie.añoEstreno}
+            </p>
             <h2 className="mt-1 line-clamp-2 text-base font-extrabold leading-tight text-white">{movie.titulo}</h2>
           </div>
         </div>
-        <div className="shrink-0 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+      </div>
+
+      <div className="mb-4 flex flex-wrap gap-2">
+        <span className="rounded-lg border border-red-500/20 bg-red-500/[0.06] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-red-200/80">
+          {movie.fase}
+        </span>
+        <span className="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+          {movie.tipoContinuidad}
+        </span>
+        <span className="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
           {movie.plataforma}
-        </div>
+        </span>
       </div>
 
       <div className="mb-5 rounded-2xl border border-white/5 bg-gradient-to-br from-red-500/[0.08] via-transparent to-white/[0.03] p-4">
@@ -95,11 +106,9 @@ export default function MovieCard({ movie, movieProgress, onToggle, onMinuteChan
         </label>
       </div>
 
-      {movie.fueraDeLineaPrincipal ? (
-        <div className="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/[0.05] px-3 py-2 text-[11px] leading-relaxed text-amber-200/70">
-          * Esta película pertenece a una realidad retrofuturista propia de los años 60 y se trata como una excepción separada de la línea temporal principal.
-        </div>
-      ) : null}
+      <div className={`mt-4 rounded-xl border px-3 py-2 text-[11px] leading-relaxed ${movie.fueraDeLineaPrincipal ? 'border-amber-500/20 bg-amber-500/[0.05] text-amber-200/70' : 'border-white/10 bg-white/[0.025] text-zinc-500'}`}>
+        {movie.notas}
+      </div>
     </article>
   );
 }

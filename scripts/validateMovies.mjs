@@ -2,6 +2,17 @@ import { MCU_MOVIES } from '../src/data/mcuMovies.js';
 
 const errors = [];
 const ids = new Set();
+const requiredTextFields = [
+  'titulo',
+  'año',
+  'añoCronologico',
+  'fase',
+  'saga',
+  'plataforma',
+  'calidad',
+  'tipoContinuidad',
+  'notas',
+];
 
 if (MCU_MOVIES.length !== 37) {
   errors.push(`Se esperaban 37 películas y hay ${MCU_MOVIES.length}.`);
@@ -19,8 +30,14 @@ MCU_MOVIES.forEach((movie, index) => {
   }
   ids.add(movie.id);
 
-  if (!movie.titulo?.trim()) {
-    errors.push(`Película ${movie.numero}: falta titulo.`);
+  for (const field of requiredTextFields) {
+    if (!movie[field]?.trim()) {
+      errors.push(`Película ${movie.numero}: falta ${field}.`);
+    }
+  }
+
+  if (!Number.isInteger(movie.añoEstreno) || movie.añoEstreno < 2008) {
+    errors.push(`Película ${movie.numero}: añoEstreno inválido.`);
   }
 
   if (!Number.isInteger(movie.duracionMinutos) || movie.duracionMinutos <= 0) {

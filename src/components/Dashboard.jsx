@@ -17,7 +17,7 @@ export default function Dashboard({ stats, syncState, userId, onReset }) {
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="mb-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex min-w-0 items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-red-500/30 bg-red-500/10 shadow-[0_0_30px_rgba(239,68,68,0.12)]">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-red-500/30 bg-red-500/10 shadow-[0_0_30px_rgba(239,68,68,0.12)]">
               <span className="text-xl font-black text-red-400">M</span>
             </div>
             <div className="min-w-0">
@@ -28,7 +28,7 @@ export default function Dashboard({ stats, syncState, userId, onReset }) {
                 </span>
               </div>
               <p className="mt-1 text-xs text-zinc-500 sm:text-sm">
-                Orden cronológico · seguimiento por minuto · sincronización en la nube
+                Maratón cronológico · progreso por minuto · respaldo local y nube
               </p>
             </div>
           </div>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">MCU Marathon Tracker</title>
+  <rect width="512" height="512" rx="96" fill="#09090b"/>
+  <rect x="48" y="72" width="416" height="368" rx="40" fill="#18181b" stroke="#ef4444" stroke-width="12"/>
+  <path fill="#ef4444" d="M104 138h304v56H104zM104 228h76v146h-76zM218 228h76v146h-76zM332 228h76v146h-76z"/>
+  <path fill="#f4f4f5" d="M126 152h44v28h-44zM212 152h44v28h-44zM298 152h44v28h-44zM126 250h32v102h-32zM240 250h32v102h-32zM354 250h32v102h-32z"/>
+</svg>

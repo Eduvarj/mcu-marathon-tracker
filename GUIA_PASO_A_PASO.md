@@ -23,6 +23,8 @@ npm run validate:data
 npm run dev
 ```
 
+El primer `npm install` genera `package-lock.json` y descarga React, Vite, Tailwind y Firebase.
+
 ### Opción B — comenzar desde cero con Vite
 
 ```bash
@@ -179,6 +181,8 @@ Debe aparecer un mensaje similar a:
 OK: 37 películas, 4839 minutos totales.
 ```
 
+La validación también exige que cada película tenga fase, saga, año cronológico, año de estreno, plataforma, tipo de continuidad y notas.
+
 ## 12. Generar build de producción
 
 ```bash
@@ -196,6 +200,8 @@ Prueba el build localmente:
 ```bash
 npm run preview
 ```
+
+El build de producción registra el service worker y usa `public/manifest.webmanifest` para que el tracker pueda instalarse como app en navegadores compatibles.
 
 ## 13. Publicar con Firebase Hosting
 
@@ -225,7 +231,7 @@ Orquesta estado de UI, filtros y composición. No contiene la lógica de Firebas
 
 `src/data/mcuMovies.js`
 
-Catálogo de las 37 películas y constantes derivadas.
+Catálogo de las 37 películas, campos de fase/saga/continuidad y constantes derivadas.
 
 `src/hooks/useMcuProgress.js`
 
@@ -234,6 +240,10 @@ Gestiona el estado del progreso, autenticación, sincronización y acciones de u
 `src/services/progressStorage.js`
 
 Es la frontera de persistencia. Aquí se encuentran localStorage, autenticación anónima y Firestore.
+
+`src/registerServiceWorker.js`
+
+Registra el service worker solo en producción para habilitar comportamiento PWA básico.
 
 `src/utils/progress.js`
 
@@ -269,4 +279,4 @@ El cliente web puede conocer la configuración pública de Firebase, pero el con
 
 La cuenta anónima es útil para este tracker porque no obliga al usuario a registrarse. Sin embargo, su identidad depende de la persistencia del navegador. No debe considerarse una cuenta personal transferible entre dispositivos.
 
-La evolución natural del proyecto es ofrecer "Vincular mi progreso" con Google, correo u otro proveedor y conservar el UID mediante la vinculación de la cuenta anónima.
+La evolución natural del proyecto es ofrecer "Vincular mi progreso" con Google, correo u otro proveedor y conservar el UID mediante la vinculación de la cuenta anónima. Ese flujo debe copiar o conservar el progreso actual antes de convertir la sesión anónima en una cuenta reutilizable.

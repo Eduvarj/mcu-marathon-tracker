@@ -1,0 +1,27 @@
+{
+  "name": "MCU Marathon Tracker",
+  "short_name": "MCU Tracker",
+  "description": "Tracker cronológico para seguir tu maratón de películas del MCU.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["entertainment", "productivity"],
+  "lang": "es-MX"
+}

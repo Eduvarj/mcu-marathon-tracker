@@ -7,6 +7,10 @@ Tracker React + Vite + Tailwind CSS + Firebase Firestore para registrar 37 pelí
 ```text
 mcu-marathon-tracker/
 ├─ public/
+│  ├─ icon.svg
+│  ├─ manifest.webmanifest
+│  ├─ maskable-icon.svg
+│  └─ sw.js
 ├─ src/
 │  ├─ components/
 │  │  ├─ Dashboard.jsx
@@ -141,6 +145,17 @@ La estrategia es de dos niveles:
 
 La autenticación anónima mantiene un UID en el navegador mientras la sesión/persistencia local siga disponible. Para sincronizar el mismo progreso entre dispositivos distintos, la siguiente evolución recomendada es vincular la cuenta anónima con Google u otro proveedor.
 
+## Uso tipo app / PWA
+
+La app incluye una configuración PWA básica:
+
+- `public/manifest.webmanifest` con nombre, color de tema, modo standalone e iconos.
+- `public/icon.svg` y `public/maskable-icon.svg` como iconos básicos.
+- `public/sw.js` para cachear el shell de la app y permitir una experiencia más estable después de la primera carga.
+- `src/registerServiceWorker.js` registra el service worker solo en build de producción.
+
+Por ahora no se agregó `vite-plugin-pwa` porque el alcance es simple y un service worker propio mantiene menos dependencias. Si después se quieren estrategias más avanzadas de precache, actualización en segundo plano o auditorías Lighthouse estrictas, ese plugin sería el siguiente paso natural.
+
 ## Reglas de negocio
 
 - Marcar una película como completada fija el minuto en su duración.
@@ -157,6 +172,23 @@ Antes de hacer cambios al catálogo puedes ejecutar:
 npm run validate:data
 ```
 
-El script comprueba que existan exactamente 37 películas, que los números sean consecutivos, que los IDs sean únicos y que las duraciones sean válidas.
+El script comprueba que existan exactamente 37 películas, que los números sean consecutivos, que los IDs sean únicos, que las duraciones sean válidas y que el catálogo incluya campos de producto como fase, saga, año cronológico, año de estreno, plataforma, tipo de continuidad y notas.
+
+## Modelo del catálogo
+
+Cada película mantiene los campos usados por la UI (`id`, `numero`, `titulo`, `año`, `plataforma`, `duracionMinutos`, `calidad`) y añade contexto para evolucionar filtros y vistas:
+
+- `fase`: fase oficial del UCM.
+- `saga`: Saga del Infinito o Saga del Multiverso.
+- `añoCronologico`: rango o año donde se ubica dentro del maratón.
+- `añoEstreno`: año de lanzamiento.
+- `tipoContinuidad`: línea principal, multiversal o realidad alterna.
+- `notas`: contexto corto para decidir por qué aparece en esa posición.
+
+No se agregaron series todavía. Una evolución futura razonable sería soportar tipos de entrada (`película`, `serie`, `especial`) y separar el catálogo en presets: solo películas, películas + especiales y cronología completa.
+
+## Sincronización futura
+
+El proyecto conserva `localStorage` como fallback y Firebase Anonymous Auth + Firestore como sincronización actual. Para sincronizar entre dispositivos, la evolución recomendada es agregar login opcional con vinculación de cuenta anónima, por ejemplo Google o email, usando Firebase Auth. Ese flujo debe conservar el progreso existente antes de vincular para no perder datos locales.
 
 > Nota de datos: la estructura conserva el catálogo de 37 películas utilizado en la versión anterior. La entrada de *Los 4 Fantásticos: Primeros pasos* está identificada explícitamente como una excepción de realidad/universo. Marvel describe el UCM como una estructura con diferentes mundos y líneas temporales; por eso no conviene modelar el multiverso como si todas las películas pertenecieran a una única cronología lineal.

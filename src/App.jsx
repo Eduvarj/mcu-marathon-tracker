@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import Dashboard from './components/Dashboard';
 import MovieGrid from './components/MovieGrid';
+import NextMoviePanel from './components/NextMoviePanel';
 import Toolbar from './components/Toolbar';
 import { MCU_MOVIES, TOTAL_DURATION_MINUTES } from './data/mcuMovies';
 import { useMcuProgress } from './hooks/useMcuProgress';
@@ -31,11 +32,23 @@ export default function App() {
       const matchesSearch =
         !normalizedSearch
         || movie.titulo.toLowerCase().includes(normalizedSearch)
-        || String(movie.numero).padStart(2, '0').includes(normalizedSearch);
+        || String(movie.numero).padStart(2, '0').includes(normalizedSearch)
+        || movie.año.toLowerCase().includes(normalizedSearch)
+        || movie.añoCronologico.toLowerCase().includes(normalizedSearch)
+        || String(movie.añoEstreno).includes(normalizedSearch)
+        || movie.fase.toLowerCase().includes(normalizedSearch)
+        || movie.saga.toLowerCase().includes(normalizedSearch)
+        || movie.plataforma.toLowerCase().includes(normalizedSearch)
+        || movie.tipoContinuidad.toLowerCase().includes(normalizedSearch);
 
       return matchesFilter && matchesSearch;
     });
   }, [filter, progress, search]);
+
+  const nextMovie = useMemo(
+    () => MCU_MOVIES.find((movie) => !progress[movie.id]?.completed) ?? null,
+    [progress],
+  );
 
   return (
     <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-red-500/30 selection:text-white">
@@ -53,6 +66,11 @@ export default function App() {
       />
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <NextMoviePanel
+          movie={nextMovie}
+          movieProgress={nextMovie ? progress[nextMovie.id] : null}
+        />
+
         <Toolbar
           search={search}
           filter={filter}
